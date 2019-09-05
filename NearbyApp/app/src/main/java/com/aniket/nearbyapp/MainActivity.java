@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ref.child("Stores").setValue(stores);
                 ref.child("Customers").setValue(cust);
-                ref.
             }
         });
     }
