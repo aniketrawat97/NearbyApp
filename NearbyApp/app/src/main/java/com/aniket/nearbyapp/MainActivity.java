@@ -3,7 +3,9 @@ package com.aniket.nearbyapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -15,15 +17,36 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<Store> stores;
     ArrayList<Customer> cust;
+    TextView login;
+    EditText email;
     int count=0;
     Store st;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ref= FirebaseDatabase.getInstance().getReference();
         ref.setValue("Hello, World!");
-        TextView tv=findViewById(R.id.tv);
+
+        login=findViewById(R.id.LoginTextView);
+        email=findViewById(R.id.editTextLoginEmail);
+        Log.i("otpt", email.getText().toString());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         st=new Store("bazinga","aniketrawat97@gmail.com","asdfopbuwsfo","123.546.789");
         st.cards=new ArrayList<>();
@@ -42,9 +65,10 @@ public class MainActivity extends AppCompatActivity {
         cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564"));
         cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564"));
         cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564"));
-        tv.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i("info", "onClick: ");
                 ref.child("Stores").setValue(stores);
                 ref.child("Customers").setValue(cust);
             }
