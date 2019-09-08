@@ -2,6 +2,7 @@ package com.aniket.nearbyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<Store> stores;
     ArrayList<Customer> cust;
-    TextView login;
+    TextView loginButton,signupButton;
     EditText email;
+    EditText passwd;
     int count=0;
+    String email_to_check,passwd_to_check;
     Store st;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
         ref= FirebaseDatabase.getInstance().getReference();
         ref.setValue("Hello, World!");
 
-        login=findViewById(R.id.LoginTextView);
+        signupButton=findViewById(R.id.SignupTextView);
+        loginButton=findViewById(R.id.LoginTextView);
         email=findViewById(R.id.editTextLoginEmail);
+        passwd=findViewById(R.id.editTextLoginPassword);
         Log.i("otpt", email.getText().toString());
 
 
@@ -65,12 +70,21 @@ public class MainActivity extends AppCompatActivity {
         cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564"));
         cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564"));
         cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564"));
-        login.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                email_to_check=email.getText().toString();
+                passwd_to_check=passwd.getText().toString();
                 Log.i("info", "onClick: ");
                 ref.child("Stores").setValue(stores);
                 ref.child("Customers").setValue(cust);
+            }
+        });
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(), CustomerSignupActivity.class);
+                startActivity(i);
             }
         });
     }
