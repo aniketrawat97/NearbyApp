@@ -129,16 +129,17 @@
         android:id="@+id/textViewStoreSignupB"
         android:layout_width="190dp"
         android:layout_height="63dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rectangle_code"
         android:backgroundTint="#EC7373"
         android:elevation="7dp"
         android:gravity="center"
         android:text="Signup"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="649dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"

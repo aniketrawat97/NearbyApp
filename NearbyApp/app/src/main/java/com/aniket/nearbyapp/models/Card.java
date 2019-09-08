@@ -1,4 +1,4 @@
-package com.aniket.nearbyapp;
+package com.aniket.nearbyapp.models;
 
 import android.graphics.Bitmap;
 

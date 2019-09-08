@@ -1,4 +1,4 @@
-package com.aniket.nearbyapp;
+package com.aniket.nearbyapp.utils;
 
 import android.app.ProgressDialog;
 import android.content.Context;

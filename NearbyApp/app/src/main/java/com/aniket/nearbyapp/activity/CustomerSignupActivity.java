@@ -1,4 +1,4 @@
-package com.aniket.nearbyapp;
+package com.aniket.nearbyapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.aniket.nearbyapp.R;
 
 public class CustomerSignupActivity extends AppCompatActivity {
 
