@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUtils.createStructure();
 
         if(isCustomer){
-            i=new Intent(getApplicationContext(),CustomerSignupActivity.class);
+            i=new Intent(getApplicationContext(),CustomerActivity.class);
         }else{
             i=new Intent(getApplicationContext(),StoreSignupActivity.class);
         }
