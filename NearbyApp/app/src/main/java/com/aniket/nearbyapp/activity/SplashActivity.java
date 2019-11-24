@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 while (!dataDownloaded){tv.setVisibility(View.VISIBLE);}
                 Log.i("info intent", "Starting intent ");
-                Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+                Intent i=new Intent(getApplicationContext(),UseAsActivity.class);
                 startActivity(i);
             }
         },timeDelay);

@@ -37,11 +37,9 @@
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="Gulab Jamun"
-        android:textColor="#FFFFFF"
+        android:textColor="#464646"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:background="@drawable/rectangle_code"
-        android:backgroundTint="#EC7373"
         app:layout_constraintEnd_toEndOf="@+id/TV_Prod_details_final_price"
         app:layout_constraintStart_toStartOf="@+id/TV_Prod_details_final_price"
         app:layout_constraintTop_toBottomOf="@+id/IV_Prod_details" />

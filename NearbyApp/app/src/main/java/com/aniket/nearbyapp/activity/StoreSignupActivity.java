@@ -1,5 +1,6 @@
 package com.aniket.nearbyapp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ public class StoreSignupActivity extends AppCompatActivity {
     TextView StoreSignupB;
     EditText StoreNameSignup,StoreEmailSingnup,StorePasswdSignup;
     String SnameTC,SemailTC,SpasswdTC;
+    Intent i4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class StoreSignupActivity extends AppCompatActivity {
                 SnameTC=StoreNameSignup.getText().toString();
                 SemailTC=StoreEmailSingnup.getText().toString();
                 SpasswdTC=StorePasswdSignup.getText().toString();
+                Intent i4=new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(i4);
             }
         });
     }
