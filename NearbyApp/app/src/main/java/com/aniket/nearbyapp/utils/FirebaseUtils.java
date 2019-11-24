@@ -28,13 +28,13 @@ public class FirebaseUtils {
         stores.add(st);
         stores.add(st);
         cust=new ArrayList<>();
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
-        cust.add(new Customer("Mark","aniketrawat97@gmail.com","321.456.7894.4564","pass"));
+        cust.add(new Customer("Mark1","aniketrawat97@gmail.com1","321.456.4894.4564","pass1"));
+        cust.add(new Customer("Mark2","aniketrawat97@gmail.com2","321.456.3894.4564","pass2"));
+        cust.add(new Customer("Mark3","aniketrawat97@gmail.com3","321.456.2894.4564","pass3"));
+        cust.add(new Customer("Mark4","aniketrawat97@gmail.com4","321.456.1894.4564","pass4"));
+        cust.add(new Customer("Mark5","aniketrawat97@gmail.com5","321.456.5894.4564","pass5"));
+        cust.add(new Customer("Mark6","aniketrawat97@gmail.com6","321.456.6894.4564","pass6"));
+        cust.add(new Customer("Mark7","aniketrawat97@gmail.com7","321.456.7894.4564","pass7"));
         ref.child("Stores").setValue(stores);
         ref.child("Customers").setValue(cust);
     }

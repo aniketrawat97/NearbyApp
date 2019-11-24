@@ -11,7 +11,7 @@ import com.aniket.nearbyapp.R;
 
 public class CustomerSignupActivity extends AppCompatActivity {
 
-    TextView CustSignupB;
+    TextView CustSignupButton;
     EditText CustNameSignup,CustEmailSingnup,CustPasswdSignup;
     String nameTC,emailTC,passwdTC;
 
@@ -19,11 +19,12 @@ public class CustomerSignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_signup);
-        CustSignupB=findViewById(R.id.TV_Store_Signup_Button);
+
+        CustSignupButton=findViewById(R.id.TV_Store_Signup_Button);
         CustNameSignup=findViewById(R.id.ET_Store_signup_name);
         CustEmailSingnup=findViewById(R.id.ET_Store_signup_email);
         CustPasswdSignup=findViewById(R.id.ET_Store_signup_set_pswd);
-        CustSignupB.setOnClickListener(new View.OnClickListener() {
+        CustSignupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nameTC=CustNameSignup.getText().toString();

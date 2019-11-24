@@ -1,10 +1,12 @@
-package com.aniket.nearbyapp;
+package com.aniket.nearbyapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class activity_use_as extends AppCompatActivity {
+import com.aniket.nearbyapp.R;
+
+public class UseAsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

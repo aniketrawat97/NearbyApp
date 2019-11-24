@@ -1,10 +1,12 @@
-package com.aniket.nearbyapp;
+package com.aniket.nearbyapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class activity_store_details extends AppCompatActivity {
+import com.aniket.nearbyapp.R;
+
+public class StoreDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

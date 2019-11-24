@@ -22,6 +22,8 @@ import com.aniket.nearbyapp.R;
 
 public class CustomerActivity extends AppCompatActivity {
     String TAG="LOG ";
+    LocationManager lm;
+    LocationListener ll;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +33,8 @@ public class CustomerActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},5);
         }
 
-        LocationManager lm=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        LocationListener ll=new LocationListener() {
+        lm=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        ll=new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 Log.i(TAG, "onLocationChanged: ");
@@ -41,7 +43,10 @@ public class CustomerActivity extends AppCompatActivity {
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-
+                        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(CustomerActivity.this, "", Toast.LENGTH_SHORT).show();
+                        }
+                        lm.requestLocationUpdates("gps", 1000, 100, ll);
                     }
                 });
 
@@ -63,10 +68,8 @@ public class CustomerActivity extends AppCompatActivity {
             }
         };
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "PERMISSION DENIED", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CustomerActivity.this, "", Toast.LENGTH_SHORT).show();
         }
-
         lm.requestLocationUpdates("gps", 1000, 100, ll);
-
     }
 }

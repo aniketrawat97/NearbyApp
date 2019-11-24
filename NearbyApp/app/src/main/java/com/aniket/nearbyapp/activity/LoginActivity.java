@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText passwd;
     String email_to_check,passwd_to_check;
     Store st;
-    boolean isCustomer=true;
+    static boolean isCustomer=true;
     Intent i;
 
     @Override
