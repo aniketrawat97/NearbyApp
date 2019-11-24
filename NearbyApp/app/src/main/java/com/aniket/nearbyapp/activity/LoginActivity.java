@@ -38,10 +38,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         ref= FirebaseDatabase.getInstance().getReference();
-        signupButton=findViewById(R.id.SignupTextView);
-        loginButton=findViewById(R.id.LoginTextView);
-        email=findViewById(R.id.editTextLoginEmail);
-        passwd=findViewById(R.id.editTextLoginPassword);
+        signupButton=findViewById(R.id.TV_Login_signupB);
+        loginButton=findViewById(R.id.TV_Login_loginB);
+        email=findViewById(R.id.ET_Login_email);
+        passwd=findViewById(R.id.ET_Login_pswd);
         FirebaseUtils.createStructure();
 
         if(isCustomer){

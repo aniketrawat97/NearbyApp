@@ -19,10 +19,10 @@ public class StoreSignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_signup);
-        StoreSignupB=findViewById(R.id.textViewStoreSignupB);
-        StoreNameSignup=findViewById(R.id.editTextNameStore);
-        StoreEmailSingnup=findViewById(R.id.editTextSingupEmailStore);
-        StorePasswdSignup=findViewById(R.id.editTextSingupPswdStore);
+        StoreSignupB=findViewById(R.id.TV_Store_Signup_Button);
+        StoreNameSignup=findViewById(R.id.ET_Store_signup_name);
+        StoreEmailSingnup=findViewById(R.id.ET_Store_signup_email);
+        StorePasswdSignup=findViewById(R.id.ET_Store_signup_set_pswd);
         StoreSignupB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

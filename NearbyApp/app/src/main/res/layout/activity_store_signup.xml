@@ -8,7 +8,7 @@
     tools:context=".CustomerSignupActivity">
 
     <EditText
-        android:id="@+id/editTextStoreAddress"
+        android:id="@+id/ET_Store_signup_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -24,10 +24,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSingupPswdStore" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_set_pswd" />
 
     <EditText
-        android:id="@+id/editTextNameStore"
+        android:id="@+id/ET_Store_signup_name"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginEnd="20dp"
@@ -41,10 +41,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/TV_store_singup" />
 
     <EditText
-        android:id="@+id/editTextSingupEmailStore"
+        android:id="@+id/ET_Store_signup_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -60,10 +60,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNameStore" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_name" />
 
     <EditText
-        android:id="@+id/editTextSingupPswdStore"
+        android:id="@+id/ET_Store_signup_set_pswd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSingupEmailStore" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_email" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -89,12 +89,12 @@
         android:layout_marginStart="58dp"
         android:layout_marginTop="69dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextStoreAddress"
+        app:layout_constraintStart_toEndOf="@+id/TV_store_signup_gps"
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_address"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal_background" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TV_store_singup"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#fff"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/TV_store_signup_gps"
         android:layout_width="223dp"
         android:layout_height="44dp"
         android:layout_marginStart="20dp"
@@ -123,10 +123,10 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextStoreAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_address" />
 
     <TextView
-        android:id="@+id/textViewStoreSignupB"
+        android:id="@+id/TV_Store_Signup_Button"
         android:layout_width="190dp"
         android:layout_height="63dp"
         android:layout_marginBottom="20dp"
@@ -134,8 +134,10 @@
         android:backgroundTint="#EC7373"
         android:elevation="7dp"
         android:gravity="center"
+        android:textStyle="bold"
         android:text="Signup"
         android:textSize="25sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -148,8 +150,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rectangle_code"
-        android:backgroundTint="#5fa0b6"
+        android:background="#5fa0b6"
         android:gravity="center"
         android:text="(Please be at your store while adding the location)"
         android:textColor="#fff"

@@ -8,12 +8,12 @@
     tools:context=".CustomerSignupActivity">
 
     <EditText
-        android:id="@+id/editTextNameStore"
+        android:id="@+id/ET_Store_signup_name"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="75dp"
         android:background="@drawable/rectangle_code"
         android:elevation="7dp"
         android:gravity="center"
@@ -22,15 +22,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/TV_store_singup" />
 
     <EditText
-        android:id="@+id/editTextSingupEmailStore"
+        android:id="@+id/ET_Store_signup_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/rectangle_code"
         android:elevation="7dp"
         android:ems="10"
@@ -41,15 +41,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNameStore" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_name" />
 
     <EditText
-        android:id="@+id/editTextSingupPswdStore"
+        android:id="@+id/ET_Store_signup_set_pswd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/rectangle_code"
         android:elevation="7dp"
         android:ems="10"
@@ -60,10 +60,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSingupEmailStore" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_email" />
 
     <TextView
-        android:id="@+id/textViewStoreSignupB"
+        android:id="@+id/TV_Store_Signup_Button"
         android:layout_width="190dp"
         android:layout_height="63dp"
         android:layout_marginTop="75dp"
@@ -71,15 +71,17 @@
         android:backgroundTint="#EC7373"
         android:elevation="7dp"
         android:gravity="center"
+        android:textColor="#FFFFFF"
         android:text="Signup"
         android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSingupPswdStore" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_set_pswd" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TV_store_singup"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#fff"

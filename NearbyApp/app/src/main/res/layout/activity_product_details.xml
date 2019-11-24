@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_product_details">
+
+    <ImageView
+        android:id="@+id/IV_Prod_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        app:layout_constraintEnd_toEndOf="@+id/TV_Prod_details_title"
+        app:layout_constraintStart_toStartOf="@+id/TV_Prod_details_title"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details"
+        tools:srcCompat="@tools:sample/avatars[4]" />
+
+    <TextView
+        android:id="@+id/TV_Prod_details"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#7C7C7C"
+        android:gravity="center"
+        android:text="Jodhpur Misthan Bhandar"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/IV_Prod_details"
+        app:layout_constraintStart_toStartOf="@+id/IV_Prod_details"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TV_Prod_details_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Gulab Jamun"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="@drawable/rectangle_code"
+        android:backgroundTint="#EC7373"
+        app:layout_constraintEnd_toEndOf="@+id/TV_Prod_details_final_price"
+        app:layout_constraintStart_toStartOf="@+id/TV_Prod_details_final_price"
+        app:layout_constraintTop_toBottomOf="@+id/IV_Prod_details" />
+
+    <TextView
+        android:id="@+id/TV_Prod_details_final_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="180"
+        android:textColor="#464646"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/TV_Prod_details_description1"
+        app:layout_constraintStart_toStartOf="@+id/TV_Prod_details_description1"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details_title" />
+
+    <TextView
+        android:id="@+id/TV_Prod_details_before_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="200"
+        android:textColor="#464646"
+        android:textSize="22sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details_final_price" />
+
+    <TextView
+        android:id="@+id/TV_Prod_details_description1"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Handmade Chocolates from Rajasthani Tribes. It is said that this chocolate improves mood and is very healthy for heart"
+        android:textColor="#464646"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/TV_Prod_details_description2"
+        app:layout_constraintStart_toStartOf="@+id/TV_Prod_details_description2"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details_before_price" />
+
+    <TextView
+        android:id="@+id/TV_Prod_details_description2"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Get GST invoice and save up to 28% on business purchases.
+         Sign up for free Here's how (terms and conditions apply)
+         Hurry Offer For Limited Time"
+        android:textColor="#686868"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details_description1" />
+
+    app:layout_constraintTop_toBottomOf="@+id/textView19"
+    tools:layout_editor_absoluteX="138dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
