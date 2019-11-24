@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i=new Intent(getApplicationContext(), CustomerSignupActivity.class);
                 startActivity(i);
 
+
             }
         });
     }
