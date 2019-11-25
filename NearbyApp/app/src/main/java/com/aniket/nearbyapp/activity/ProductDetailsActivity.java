@@ -25,7 +25,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             ArrayList<Card> cardlist = new ArrayList();
             Card card1 = new Card("rabdi", "A very interesting sweet of india mostly popular at mavli railway station", "And is quite expensive", "Box ji halwai aj denge bilkul muft,I mean Rabdi", "800", "100");
             cardlist.add(card1);
-            store1 = new Store("dvijay", "dvijay11nov1997@gmail.com", "sectore 14", "123", "bhaumik", cardlist);
+            store1 = new Store("dvijay", "dvijay11nov1997@gmail.com", "sectore 14", "123,123,123,123","123,123,123,123", "bhaumik", cardlist);
             Store_name = findViewById(R.id.TV_Prod_details);
             Store_name.setText(store1.name);
             Image_prod = findViewById(R.id.IV_Prod_details);

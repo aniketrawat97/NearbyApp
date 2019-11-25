@@ -33,13 +33,14 @@ public class CustomerActivity extends AppCompatActivity {
     LocationManager lm;
     LocationListener ll;
     Location currentLocation;
-    ArrayList<Store> nearByStoresList;
+    double distanceThreshold=100;
+    public static ArrayList<Store> nearByStoresList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
 
-        HashMap hashMap;
+        Log.i(TAG+"  ANSWER ", Double.toString(FirebaseUtils.distance(35.2,139.74477,35.6544,139.1)));
 
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
@@ -73,10 +74,19 @@ public class CustomerActivity extends AppCompatActivity {
                             for (int i = 0; i < storelist.size(); i++) {
 
                                 Log.i(TAG, currentLocation.toString());
-                                Log.i(TAG, storelist.get(0).GPS);
-                                }
+                                Log.i(TAG, storelist.get(i).lat);
+                                Log.i(TAG, storelist.get(i).lng);
 
-                        }
+                                    if(FirebaseUtils.distance(currentLocation.getLatitude()
+                                            ,currentLocation.getLongitude()
+                                            ,Double.parseDouble(storelist.get(i).lat)
+                                            ,Double.parseDouble(storelist.get(i).lng))>distanceThreshold){
+
+                                        nearByStoresList.add(storelist.get(i));
+
+                                    }
+                                }
+                            }
                             catch (Exception e){
                                 Log.i(TAG, "EXCEPTION "+e);
                             }
@@ -104,7 +114,7 @@ public class CustomerActivity extends AppCompatActivity {
         }
         else{
             Log.i(TAG, "in else of location update");
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 100,ll);
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0,ll);
         }
 
     }
