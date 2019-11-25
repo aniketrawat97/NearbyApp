@@ -18,7 +18,7 @@ public class FirebaseUtils {
 
     public static void createStructure(){
         ref= FirebaseDatabase.getInstance().getReference();
-        st=new Store("bazinga","aniketrawat97@gmail.com","asdfopbuwsfo","123.546.789","pass");
+        st=new Store("bazinga","aniketrawat97@gmail.com","asdfopbuwsfo","123.546.789","pass",null);
         st.cards=new ArrayList<>();
         st.cards.add(new Card("Chocolate","blabla desc1","blabla desc2","this is an offer","200","150"));
         st.cards.add(new Card("asdf","asdgasg","blabasdff  sc2","this is an offer","600","450"));

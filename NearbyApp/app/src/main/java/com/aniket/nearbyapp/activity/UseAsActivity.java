@@ -23,7 +23,7 @@ public class UseAsActivity extends AppCompatActivity {
         Customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i1=new Intent(getApplicationContext(), LoginActivity.class);
+                Intent i1=new Intent(getApplicationContext(), ProductDetailsActivity.class);
                 startActivity(i1);
             }
         });
