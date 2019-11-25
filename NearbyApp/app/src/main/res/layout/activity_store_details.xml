@@ -6,103 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.StoreDetailsActivity">
 
-    <TextView
-        android:id="@+id/TV_Store_details"
-        android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:text="The Store"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:background="#7C7C7C"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="167dp" />
-
-    <ImageView
-        android:id="@+id/IV_store_details_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="142dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="31dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/TV_Store_details_card_title"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="Card Title:"
-        android:textStyle="bold"
-        android:textColor="#464646"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IV_store_details_logo" />
-
-    <TextView
-        android:id="@+id/TV_Store_details_final_price"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="24dp"
-        android:text="Final Price:"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#464646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_card_title" />
-
-    <TextView
-        android:id="@+id/TV_Store_details_before_price"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="24dp"
-        android:text="Before Price:"
-        android:textStyle="bold"
-        android:textColor="#464646"
-        android:textSize="20sp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_final_price" />
-
-    <TextView
-        android:id="@+id/TV_Store_details_description1"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="24dp"
-        android:text="Description 1:"
-        android:textSize="20sp"
-        android:textColor="#464646"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_before_price" />
-
-    <TextView
-        android:id="@+id/TV_Store_details_description2"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="117dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="Description 2:"
-        android:textColor="#464646"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_description1" />
-
     <EditText
         android:id="@+id/ET_Store_details_card_title"
         android:layout_width="140dp"
@@ -169,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ET_Store_details_Before_price" />
 
     <EditText
-        android:id="@+id/ET_Store_details_descrption2"
+        android:id="@+id/ET_Store_details_description2"
         android:layout_width="140dp"
         android:layout_height="49dp"
         android:layout_marginBottom="117dp"
@@ -186,4 +89,119 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TV_Store_details_description2"
         app:layout_constraintTop_toBottomOf="@+id/ET_Store_details_description1" />
+
+    <ImageView
+        android:id="@+id/IV_store_details_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="142dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/TV_Store_details"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:background="#7C7C7C"
+        android:gravity="center"
+        android:text="The Store"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="167dp" />
+
+    <TextView
+        android:id="@+id/TV_Store_details_card_title"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Card Title:"
+        android:textColor="#464646"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IV_store_details_logo" />
+
+    <TextView
+        android:id="@+id/TV_Store_details_final_price"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Final Price:"
+        android:textColor="#464646"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_card_title" />
+
+    <TextView
+        android:id="@+id/TV_Store_details_before_price"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Before Price:"
+        android:textColor="#464646"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_final_price" />
+
+    <TextView
+        android:id="@+id/TV_Store_details_description1"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Description 1:"
+        android:textColor="#464646"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_before_price" />
+
+    <TextView
+        android:id="@+id/TV_Store_details_description2"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="117dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Description 2:"
+        android:textColor="#464646"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_description1" />
+
+    <TextView
+        android:id="@+id/TV_Store_details_upload"
+        android:layout_width="140dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:text="Upload"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:elevation="7dp"
+        android:background="@drawable/rectangle_code"
+        android:backgroundTint="#EC7373"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Store_details_description2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
