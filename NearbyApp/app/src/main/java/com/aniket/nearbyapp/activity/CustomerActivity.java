@@ -14,43 +14,75 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.aniket.nearbyapp.R;
+import com.aniket.nearbyapp.models.Store;
+import com.aniket.nearbyapp.utils.FirebaseUtils;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import static com.aniket.nearbyapp.activity.SplashActivity.storelist;
 
 
 public class CustomerActivity extends AppCompatActivity {
     String TAG="LOG ";
     LocationManager lm;
     LocationListener ll;
+    Location currentLocation;
+    ArrayList<Store> nearByStoresList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
 
+        HashMap hashMap;
+
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},5);
         }
 
+
         lm=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
+
         ll=new LocationListener() {
             @Override
-            public void onLocationChanged(Location location) {
-                Log.i(TAG, "onLocationChanged: ");
-                Log.i(TAG,location.getLatitude() +"  " +location.getLongitude());
+            public void onLocationChanged(final Location location) {
+                    currentLocation=location;
+                    Log.i(TAG, "onLocationChanged: ");
+                    Log.i(TAG,location.getLatitude() +"  " +location.getLongitude());
 
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                            Toast.makeText(CustomerActivity.this, "", Toast.LENGTH_SHORT).show();
+                    AsyncTask.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                            Log.i(TAG, "run: In RUN");
+                            if(SplashActivity.dataDownloaded){
+                                GenericTypeIndicator<ArrayList<Store>> t = new GenericTypeIndicator<ArrayList<Store>>() {};
+                                storelist=SplashActivity.dataSnapshot.child("Stores").getValue(t);
+                                //Log.i(TAG,storelist.get(0).GPS);
+                            }
+                            else {
+                                Log.i(TAG, "storeList is NULL");
+                            }
+                            for (int i = 0; i < storelist.size(); i++) {
+
+                                Log.i(TAG, currentLocation.toString());
+                                Log.i(TAG, storelist.get(0).GPS);
+                                }
+
                         }
-                        lm.requestLocationUpdates("gps", 1000, 100, ll);
-                    }
-                });
-
-            }
+                            catch (Exception e){
+                                Log.i(TAG, "EXCEPTION "+e);
+                            }
+                        }
+                    });
+                }
 
             @Override
             public void onStatusChanged(String s, int i, Bundle bundle) {
@@ -68,8 +100,12 @@ public class CustomerActivity extends AppCompatActivity {
             }
         };
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(CustomerActivity.this, "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CustomerActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
         }
-        lm.requestLocationUpdates("gps", 1000, 100, ll);
+        else{
+            Log.i(TAG, "in else of location update");
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 100,ll);
+        }
+
     }
 }

@@ -15,4 +15,5 @@ public class Store {
         this.email_pass=email+"_"+pass;
         this.cards=cards;
     }
+    public Store(){}
 }
