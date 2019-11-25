@@ -23,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static com.aniket.nearbyapp.activity.SplashActivity.storelist;
 
@@ -34,13 +33,14 @@ public class CustomerActivity extends AppCompatActivity {
     LocationListener ll;
     Location currentLocation;
     double distanceThreshold=100;
-    public static ArrayList<Store> nearByStoresList;
+    ArrayList<Store> nearByStoresList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
 
-        Log.i(TAG+"  ANSWER ", Double.toString(FirebaseUtils.distance(35.2,139.74477,35.6544,139.1)));
+        nearByStoresList=new ArrayList<>();
+        Log.i(TAG+"  ANSWER ", Double.toString(FirebaseUtils.distance(35,140,35,141)));
 
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
@@ -77,11 +77,9 @@ public class CustomerActivity extends AppCompatActivity {
                                 Log.i(TAG, storelist.get(i).lat);
                                 Log.i(TAG, storelist.get(i).lng);
 
-                                    if(FirebaseUtils.distance(currentLocation.getLatitude()
-                                            ,currentLocation.getLongitude()
-                                            ,Double.parseDouble(storelist.get(i).lat)
-                                            ,Double.parseDouble(storelist.get(i).lng))>distanceThreshold){
+                                double distance=FirebaseUtils.distance(currentLocation.getLatitude(),currentLocation.getLongitude(),Double.parseDouble(storelist.get(i).lat),Double.parseDouble(storelist.get(i).lng));
 
+                                    if(distance<distanceThreshold){
                                         nearByStoresList.add(storelist.get(i));
 
                                     }
