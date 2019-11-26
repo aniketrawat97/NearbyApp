@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -15,8 +16,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 import com.aniket.nearbyapp.R;
+import com.aniket.nearbyapp.models.CustomAdapter;
 import com.aniket.nearbyapp.models.Store;
 import com.aniket.nearbyapp.utils.FirebaseUtils;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,11 +36,18 @@ public class CustomerActivity extends AppCompatActivity {
     LocationListener ll;
     Location currentLocation;
     double distanceThreshold=100;
-    ArrayList<Store> nearByStoresList;
+    ArrayList<Store> nearByStoresList,temp;
+    ListView lv;
+    Intent i;
+    CustomAdapter customAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
+        lv=findViewById(R.id.listView_customer);
+
+
 
         nearByStoresList=new ArrayList<>();
         Log.i(TAG+"  ANSWER ", Double.toString(FirebaseUtils.distance(35,140,35,141)));
@@ -57,6 +67,9 @@ public class CustomerActivity extends AppCompatActivity {
                     currentLocation=location;
                     Log.i(TAG, "onLocationChanged: ");
                     Log.i(TAG,location.getLatitude() +"  " +location.getLongitude());
+
+                    nearByStoresList=new ArrayList<>();
+                    temp=new ArrayList<>();
 
                     AsyncTask.execute(new Runnable() {
                         @Override
@@ -80,16 +93,22 @@ public class CustomerActivity extends AppCompatActivity {
                                 double distance=FirebaseUtils.distance(currentLocation.getLatitude(),currentLocation.getLongitude(),Double.parseDouble(storelist.get(i).lat),Double.parseDouble(storelist.get(i).lng));
 
                                     if(distance<distanceThreshold){
-                                        nearByStoresList.add(storelist.get(i));
-
+                                        temp.add(storelist.get(i));
                                     }
                                 }
+                            notifyAdapter();
                             }
                             catch (Exception e){
                                 Log.i(TAG, "EXCEPTION "+e);
                             }
                         }
                     });
+
+                    temp = nearByStoresList;
+                    customAdapter = new CustomAdapter(getApplicationContext(), i, temp);
+                    lv.setAdapter(customAdapter);
+
+
                 }
 
             @Override
@@ -112,8 +131,21 @@ public class CustomerActivity extends AppCompatActivity {
         }
         else{
             Log.i(TAG, "in else of location update");
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0,ll);
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0,ll);
         }
 
+    }
+    private void notifyAdapter()  {
+        runOnUiThread(new Runnable()  {
+            public void run() {
+                nearByStoresList=temp;
+
+                lv.setAdapter(null);
+                if(customAdapter != null) {
+                    customAdapter.notifyDataSetChanged();
+                }
+                lv.setAdapter(customAdapter);
+            }
+        });
     }
 }

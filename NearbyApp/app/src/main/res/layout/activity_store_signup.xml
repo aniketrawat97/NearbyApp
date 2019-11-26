@@ -81,18 +81,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_email" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="62dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="69dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TV_store_signup_gps"
-        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_address"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal_background" />
-
     <TextView
         android:id="@+id/TV_store_singup"
         android:layout_width="match_parent"
@@ -107,23 +95,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/TV_store_signup_gps"
-        android:layout_width="223dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="69dp"
-        android:background="@drawable/rectangle_code"
-        android:backgroundTint="#5fa0b6"
-        android:gravity="center"
-        android:text="Add your GPS location"
-        android:textColor="#fff"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_address" />
 
     <TextView
         android:id="@+id/TV_Store_Signup_Button"
@@ -144,19 +115,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         android:background="#5fa0b6"
         android:gravity="center"
         android:text="(Please be at your store while adding the location)"
         android:textColor="#fff"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_address" />
 </androidx.constraintlayout.widget.ConstraintLayout>

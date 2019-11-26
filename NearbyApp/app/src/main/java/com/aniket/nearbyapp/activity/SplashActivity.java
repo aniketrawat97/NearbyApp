@@ -47,7 +47,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(i);
             }
         },timeDelay);
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 SplashActivity.dataSnapshot=dataSnapshot;

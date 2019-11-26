@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.StoreDetailsActivity">
+    tools:context=".activity.CardUpdateActivity">
 
     <EditText
         android:id="@+id/ET_Store_details_card_title"

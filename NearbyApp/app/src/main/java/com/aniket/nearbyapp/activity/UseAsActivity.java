@@ -11,7 +11,7 @@ import com.aniket.nearbyapp.R;
 
 public class UseAsActivity extends AppCompatActivity {
     Button Customer,Store;
-    Intent i1,i2;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +23,17 @@ public class UseAsActivity extends AppCompatActivity {
         Customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i1=new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i1);
+                Intent i=new Intent(getApplicationContext(), LoginActivity.class);
+                i.putExtra("status",true);
+                startActivity(i);
             }
         });
         Store.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i2=new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i2);
+                Intent i=new Intent(getApplicationContext(), LoginActivity.class);
+                i.putExtra("status",false);
+                startActivity(i);
             }
         });
     }

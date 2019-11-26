@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ET_Store_signup_email" />
 
     <TextView
-        android:id="@+id/TV_Store_Signup_Button"
+        android:id="@+id/TV_Cust_Signup_Button"
         android:layout_width="190dp"
         android:layout_height="63dp"
         android:layout_marginTop="75dp"

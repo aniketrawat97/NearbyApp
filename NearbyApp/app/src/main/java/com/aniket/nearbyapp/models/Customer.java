@@ -9,4 +9,7 @@ public class Customer {
         this.pass= pass;
         this.email_pass=email+"_"+pass;
     }
+
+    public Customer() {
+    }
 }

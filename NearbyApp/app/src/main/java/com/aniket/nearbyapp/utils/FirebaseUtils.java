@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class FirebaseUtils {
 
-    static DatabaseReference ref;
+    public static DatabaseReference ref;
     static Store st0,st1,st2,st3;
     static ArrayList<Store> stores;
     static ArrayList<Customer> cust;
@@ -27,7 +27,7 @@ public class FirebaseUtils {
 
     public static void createStructure(){
         ref= FirebaseDatabase.getInstance().getReference();
-        st0=new Store("qbaziqanga","aniketrawat97@gmail.com","asdfopbuwsfo","35","140.001","pass",null);
+        st0=new Store("qbaziqanga","s","asdfopbuwsfo","35","140.001","o",null);
         st0.cards=new ArrayList<>();
         st0.cards.add(new Card("Chocolate","blabla desc1","blabla desc2","this is an offer","200","150"));
         st0.cards.add(new Card("asdf","asdgasg","blabasdff  sc2","this is an offer","600","450"));
@@ -106,7 +106,7 @@ public class FirebaseUtils {
 
         double c = 2 * Math.asin(Math.sqrt(a));
 
-        double r = 6371;
+        double r = 6378.137;
         return(c * r) * 1000;
     }
 }
