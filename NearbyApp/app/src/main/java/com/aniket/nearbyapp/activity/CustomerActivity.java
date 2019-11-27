@@ -59,12 +59,10 @@ public class CustomerActivity extends AppCompatActivity {
                 if(SplashActivity.dataDownloaded){
                     GenericTypeIndicator<ArrayList<Store>> t = new GenericTypeIndicator<ArrayList<Store>>() {};
                     storelist=SplashActivity.dataSnapshot.child("Stores").getValue(t);
-
                 }
                 else {
                     Log.i(TAG, "storeList is NULL");
                 }
-
                 nearByStoresList=new ArrayList<>();
                 if (ContextCompat.checkSelfPermission(CustomerActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(CustomerActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},5);

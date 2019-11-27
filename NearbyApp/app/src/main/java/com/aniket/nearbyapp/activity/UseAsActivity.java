@@ -6,17 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.aniket.nearbyapp.R;
 
 public class UseAsActivity extends AppCompatActivity {
     Button Customer,Store;
     Intent i;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_use_as);
+        imageView=findViewById(R.id.logouseas);
+        imageView.setImageResource(R.drawable.logo);
 
         Customer=findViewById(R.id.Button_Use_as_cust);
         Store=findViewById(R.id.Button_Use_as_store);

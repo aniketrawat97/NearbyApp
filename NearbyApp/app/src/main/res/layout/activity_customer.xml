@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#7c7c7c">
         <TextView
             android:id="@+id/TV_Prod_details"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="#7C7C7C"
+            android:background="#7c7c7c"
             android:gravity="center"
             android:text="STORES NEAR YOU"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/IV_Prod_details"
             app:layout_constraintStart_toStartOf="@+id/IV_Prod_details"
@@ -24,12 +25,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details" />
+            app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details"
+            android:dividerHeight="5dp"/>
 
         <ImageView
             android:id="@+id/refreshButton"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:tint="#777"
@@ -39,8 +41,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             app:layout_constraintBottom_toBottomOf="@+id/refreshButton"
             app:layout_constraintEnd_toEndOf="@+id/refreshButton"
             app:layout_constraintStart_toStartOf="@+id/refreshButton"
