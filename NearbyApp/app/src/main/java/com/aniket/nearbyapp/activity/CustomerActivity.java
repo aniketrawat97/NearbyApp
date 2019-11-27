@@ -3,7 +3,6 @@ package com.aniket.nearbyapp.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +10,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,6 +44,7 @@ public class CustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
         lv=findViewById(R.id.listView_customer);
+        i=new Intent(this,ProductDetailActivity.class);
 
         refreshButton=findViewById(R.id.refreshButton);
         refreshButton.setOnClickListener(new View.OnClickListener() {

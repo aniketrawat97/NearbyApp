@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.aniket.nearbyapp.R;
 
@@ -40,5 +41,9 @@ public class UseAsActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Haraam Ke Jane , Aur lele BULLT?", Toast.LENGTH_SHORT).show();
     }
 }

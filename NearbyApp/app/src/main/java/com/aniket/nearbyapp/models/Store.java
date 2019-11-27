@@ -1,8 +1,9 @@
 package com.aniket.nearbyapp.models;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Store {
+public class Store implements Serializable{
     public String name,email,address,lat,lng,pass,email_pass;
     public ArrayList<Card> cards;
 

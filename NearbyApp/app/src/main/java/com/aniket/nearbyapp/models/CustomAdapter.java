@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.aniket.nearbyapp.R;
+import com.aniket.nearbyapp.utils.ObjectSerializer;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -59,7 +60,7 @@ public class CustomAdapter extends BaseAdapter {
         return position;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final View v= View.inflate(context, R.layout.customer_list_item,null);
 
         final TextView name=v.findViewById(R.id.name_tv);
@@ -67,7 +68,7 @@ public class CustomAdapter extends BaseAdapter {
         final TextView finalprice = v.findViewById(R.id.final_tv);
         photo=v.findViewById(R.id.store_image_tv);
 
-        photo.setImageResource(R.drawable.store_image);
+        photo.setImageResource(R.drawable.logo);
 
         //setting up text to textviews
 
@@ -76,7 +77,19 @@ public class CustomAdapter extends BaseAdapter {
         title.setText(nearbyStoreList.get(pos).cards.get(0).title);
         finalprice.setText(nearbyStoreList.get(pos).cards.get(0).finalPrice);
         Log.i("STORAGE", "IN getview");
-        AsyncTask.execute(new Runnable() {
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    intent.putExtra("store", ObjectSerializer.serialize(nearbyStoreList.get(position)));
+                    context.startActivity(intent);
+                }
+                catch (Exception e){
+                    Log.i("LOG", "onClick: "+e);
+                }
+            }
+        });
+        /*AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 Log.i("STORAGE", "IN STORAGE ");
@@ -107,7 +120,7 @@ public class CustomAdapter extends BaseAdapter {
                     }
                 });
             }
-        });
+        });*/
         return v;
     }
 }

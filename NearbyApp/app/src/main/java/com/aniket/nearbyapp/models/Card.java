@@ -2,7 +2,9 @@ package com.aniket.nearbyapp.models;
 
 import android.graphics.Bitmap;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable {
     public String title,desc1,desc2,offer,beforePrice,finalPrice;
     public Bitmap image;
 
