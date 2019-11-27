@@ -47,11 +47,6 @@ public class CardUpdateActivity extends AppCompatActivity {
                 finalPrice_TC=finalPrice.getText().toString();
                 description1_TC=description1.getText().toString();
                 description2_TC=description2.getText().toString();
-                try{
-
-                }catch (Exception e){
-
-                }
 
                 ArrayList<Card> c=new ArrayList<>();
                 Card newcard=new Card(cardTitle_TC,description1_TC,description2_TC,"",beforePrice_TC,finalPrice_TC);
@@ -59,7 +54,7 @@ public class CardUpdateActivity extends AppCompatActivity {
                 GenericTypeIndicator<ArrayList<Store>> t = new GenericTypeIndicator<ArrayList<Store>>() {};
                 ArrayList<Store>storeListproduct = SplashActivity.dataSnapshot.child("Stores").getValue(t);
                 for(int i=0;i<storeListproduct.size();i++){
-                    if(storeListproduct.get(i).email_pass==LoginActivity.storeEmailPass){
+                    if(storeListproduct.get(i).email_pass.equals(LoginActivity.storeEmailPass)){
                         index=i;
                     }
                 }

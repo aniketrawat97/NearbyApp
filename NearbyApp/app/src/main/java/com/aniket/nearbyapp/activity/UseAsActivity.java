@@ -44,6 +44,6 @@ public class UseAsActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Haraam Ke Jane , Aur lele BULLT?", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Cannot go back", Toast.LENGTH_SHORT).show();
     }
 }
