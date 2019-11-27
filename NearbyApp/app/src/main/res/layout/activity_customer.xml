@@ -22,11 +22,32 @@
             android:id="@+id/listView_customer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details">
+            app:layout_constraintTop_toBottomOf="@+id/TV_Prod_details" />
+
+        <ImageView
+            android:id="@+id/refreshButton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:tint="#777"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_brightness_1_black_24dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/refreshButton"
+            app:layout_constraintEnd_toEndOf="@+id/refreshButton"
+            app:layout_constraintStart_toStartOf="@+id/refreshButton"
+            app:layout_constraintTop_toTopOf="@+id/refreshButton"
+            app:srcCompat="@drawable/ic_refresh_white_24dp" />
 
 
-        </ListView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

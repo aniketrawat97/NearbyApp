@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,7 +23,6 @@ import com.aniket.nearbyapp.R;
 import com.aniket.nearbyapp.models.CustomAdapter;
 import com.aniket.nearbyapp.models.Store;
 import com.aniket.nearbyapp.utils.FirebaseUtils;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 
 import java.util.ArrayList;
@@ -34,12 +34,13 @@ public class CustomerActivity extends AppCompatActivity {
     String TAG="LOG ";
     LocationManager lm;
     LocationListener ll;
-    Location currentLocation;
+    public static Location currentLocation;
     double distanceThreshold=100;
     ArrayList<Store> nearByStoresList,temp;
     ListView lv;
     Intent i;
     CustomAdapter customAdapter;
+    ImageView refreshButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,91 +48,60 @@ public class CustomerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer);
         lv=findViewById(R.id.listView_customer);
 
-
-
-        nearByStoresList=new ArrayList<>();
-        Log.i(TAG+"  ANSWER ", Double.toString(FirebaseUtils.distance(35,140,35,141)));
-
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},5);
-        }
-
-
-        lm=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
-
-
-        ll=new LocationListener() {
+        refreshButton=findViewById(R.id.refreshButton);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onLocationChanged(final Location location) {
-                    currentLocation=location;
-                    Log.i(TAG, "onLocationChanged: ");
-                    Log.i(TAG,location.getLatitude() +"  " +location.getLongitude());
+            public void onClick(View view) {
 
-                    nearByStoresList=new ArrayList<>();
-                    temp=new ArrayList<>();
+                Log.i(TAG, "run: In RUN");
+                temp=new ArrayList<>();
 
-                    AsyncTask.execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                            Log.i(TAG, "run: In RUN");
-                            if(SplashActivity.dataDownloaded){
-                                GenericTypeIndicator<ArrayList<Store>> t = new GenericTypeIndicator<ArrayList<Store>>() {};
-                                storelist=SplashActivity.dataSnapshot.child("Stores").getValue(t);
-                                //Log.i(TAG,storelist.get(0).GPS);
-                            }
-                            else {
-                                Log.i(TAG, "storeList is NULL");
-                            }
-                            for (int i = 0; i < storelist.size(); i++) {
-
-                                Log.i(TAG, currentLocation.toString());
-                                Log.i(TAG, storelist.get(i).lat);
-                                Log.i(TAG, storelist.get(i).lng);
-
-                                double distance=FirebaseUtils.distance(currentLocation.getLatitude(),currentLocation.getLongitude(),Double.parseDouble(storelist.get(i).lat),Double.parseDouble(storelist.get(i).lng));
-
-                                    if(distance<distanceThreshold){
-                                        temp.add(storelist.get(i));
-                                    }
-                                }
-                            notifyAdapter();
-                            }
-                            catch (Exception e){
-                                Log.i(TAG, "EXCEPTION "+e);
-                            }
-                        }
-                    });
-
-                    temp = nearByStoresList;
-                    customAdapter = new CustomAdapter(getApplicationContext(), i, temp);
-                    lv.setAdapter(customAdapter);
-
+                if(SplashActivity.dataDownloaded){
+                    GenericTypeIndicator<ArrayList<Store>> t = new GenericTypeIndicator<ArrayList<Store>>() {};
+                    storelist=SplashActivity.dataSnapshot.child("Stores").getValue(t);
 
                 }
+                else {
+                    Log.i(TAG, "storeList is NULL");
+                }
 
-            @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
+                nearByStoresList=new ArrayList<>();
+                if (ContextCompat.checkSelfPermission(CustomerActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(CustomerActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},5);
+                }
+                lm=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+                Location location=lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (location==null){
 
+                }else {
+                    currentLocation = location;
+                    for (int i = 0; i < storelist.size(); i++) {
+
+                        Log.i(TAG, currentLocation.toString());
+                        Log.i(TAG, storelist.get(i).lat);
+                        Log.i(TAG, storelist.get(i).lng);
+
+                        double distance = FirebaseUtils.distance(currentLocation.getLatitude(), currentLocation.getLongitude(), Double.parseDouble(storelist.get(i).lat), Double.parseDouble(storelist.get(i).lng));
+
+                        if (distance < distanceThreshold) {
+                            temp.add(storelist.get(i));
+                        }
+                    }
+                }
+
+                Log.i(TAG, Integer.toString(temp.size()));
+                customAdapter=new CustomAdapter(CustomerActivity.this,i,temp);
+                lv.setAdapter(customAdapter);
             }
+        });
 
-            @Override
-            public void onProviderEnabled(String s) {
+        nearByStoresList=new ArrayList<>();
 
-            }
-
-            @Override
-            public void onProviderDisabled(String s) {
-
-            }
-        };
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(CustomerActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
         }
         else{
             Log.i(TAG, "in else of location update");
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0,ll);
         }
 
     }
